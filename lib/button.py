@@ -9,10 +9,10 @@ class ButtonDetector(Detector):
     def __init__(self):
         Detector.__init__(self)
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(GPIO_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(ButtonDetector.GPIO_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     def check_input(self):
-        input_state = GPIO.input(GPIO_PIN)
+        input_state = GPIO.input(ButtonDetector.GPIO_PIN)
         if input_state == False:
             print("RECEIVED INPUT")
             self.throw_event()
